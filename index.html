@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container disabled">
+        <h1>Photo Editor</h1>
+        <hr/>
+ 
+
+        <div class="your-photo-here" >
+            <img src="/one (2).png" alt="" >
+        </div>
+
+        <div class="choose-image">
+            <!-- <button>Choose Image</button> -->
+            <div class="btn">
+                <p>Choose Images </p>
+                <img src="/images/upload.png" alt="">
+            </div>
+           
+         
+            
+            <input type="file" name="" id="" accept="image/*" hidden>
+        </div>
+
+        <div class="slider">
+            
+            <div class="filter-info">
+                <span class="name">brightness</span>
+                <span class="value">100%</span>
+            </div>
+            <input type="range" name="" id="" max="200" min="0">
+        </div>
+
+        <div class="icon-filter">
+            <p>Filters</p>
+
+            <div class="icon-container">
+                <img src="/images/brightnss.png" alt="">
+                <img src="/images/contrast.png" alt="">
+                <img src="/images/opactiy.png" alt="">
+                <img src="/images/invert.png" alt="">
+                <img src="/images/blur.png" alt="">
+
+            </div>
+        </div>
+
+        <div class="Rotate-and-flips">
+            <p>Rotate & Flips</p>
+
+            <div class="icon-container2">
+                <img src="/images/rotateright.png" alt="">
+                <img src="/images/rotateleft.png" alt="">
+                <img src="/images/flip.png" alt="">
+                <img src="/images/flip.png" alt="">
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button>Reset Filter</button>
+            <button>Save Images</button>
+        </div>
+
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -2,13 +2,26 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    /* background-color: white; */
 }
+
 body{
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+
+}
+.icon-container button{
+    border: none;
+    background-color: white;
+    border-radius: 50%;
+    padding-top: 3px;
+}
+.active{
+    background-color:aqua !important;
+    box-shadow: 1px 1px 10px 2px aqua;
 
 }
 .container{

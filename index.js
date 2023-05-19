@@ -6,6 +6,8 @@ let slider_info_name= document.querySelector(".name")
 let slider_info_value= document.querySelector(".value")
 let slider=document.querySelector(".slider input");
 let rotate_flip=document.querySelectorAll(".icon-container2 img");
+let reset=document.querySelector(".button-container .reset")
+console.log(reset)
 
 let brightness =100 , contrast =100 ,saturate=100 ,opacity=100,blurx=0;
 let degree=0;
@@ -33,6 +35,24 @@ choose_input.addEventListener('change', () => {
     if (imgSrc) {
         document.querySelector('.container').classList.remove("disabled");
     }
+})
+
+reset.addEventListener('click',()=>{
+    // console.log("reset")
+     brightness =100 
+      contrast =100 
+      saturate=100 
+      opacity=100
+      blurx=0;
+ degree=0;
+ toggle=0
+ toggle_up=0;
+
+
+ imgSrc.style.rotate=`${degree}deg`;
+ imgSrc.style.transform= ''
+ imgSrc.style.filter=`contrast(${brightness}%)  brightness(${contrast}%) saturate(${saturate}%) opacity(${opacity}%) blur(${blurx}px)`
+
 })
 
 filter.forEach((element) => {
@@ -77,9 +97,9 @@ filter.forEach((element) => {
     })
 
 })
-console.log(rotate_flip)
+// console.log(rotate_flip)
 rotate_flip.forEach((element)=>{
-    console.log(element);
+    // console.log(element);
     element.addEventListener('click',()=>{
         if(element.id==='rotate_right'){
             if(degree===360){

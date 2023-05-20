@@ -146,8 +146,8 @@ gap: 70px;
     }
 
     .disabled  .button-container{
-        /* pointer-events: none;
-        opacity: .5; */
+        pointer-events: none;
+        opacity: .5;
     }
     .button-container :nth-child(2){
         background-color: rgb(82, 212, 82);

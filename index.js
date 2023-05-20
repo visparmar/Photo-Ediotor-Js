@@ -7,11 +7,11 @@ let slider_info_value= document.querySelector(".value")
 let slider=document.querySelector(".slider input");
 let rotate_flip=document.querySelectorAll(".icon-container2 img");
 let reset=document.querySelector(".button-container .reset")
-console.log(reset)
+
 
 let brightness =100 , contrast =100 ,saturate=100 ,opacity=100,blurx=0;
 let degree=0;
-let toggle=0,toggle_up=0;
+var flipX=1,flipY=1;
 
 choose_img.addEventListener('click', () => {
     choose_input.click()
@@ -45,8 +45,8 @@ reset.addEventListener('click',()=>{
       opacity=100
       blurx=0;
  degree=0;
- toggle=0
- toggle_up=0;
+flipX=1;
+flipY=1;
 
 
  imgSrc.style.rotate=`${degree}deg`;
@@ -122,27 +122,16 @@ rotate_flip.forEach((element)=>{
 
         }
         else if(element.id==='flip_right'){
-            if(toggle===0){
-                imgSrc.style.transform= 'scaleX(-1)'
-                toggle=1;
-            }else{
-                imgSrc.style.transform= ''
-                toggle=0;
-            }
+            flipX=flipX===1 ? -1 :1;
+            
             
         }
 
         else if(element.id==='flip_up'){
-if(toggle===0){
-                imgSrc.style.transform= 'scaleY(-1)'
-                toggle=1;
-            }else{
-                imgSrc.style.transform= ''
-                toggle=0;
-            }
+            flipY=flipY===1 ? -1 :1;
         }
 
-        imgSrc.style.rotate=`${degree}deg`;
+        imgSrc.style.transform=`rotate(${degree}deg)  scale(${flipX},${flipY})`;
     })
 
 })
@@ -170,6 +159,30 @@ let slide_State=document.querySelector('.active');
     imgSrc.style.filter=`contrast(${brightness}%)  brightness(${contrast}%) saturate(${saturate}%) opacity(${opacity}%) blur(${blurx}px)`
     // console.log(brightness,contrast,opacity,saturate,blurx)
     
+})
+
+document.querySelector(".save").addEventListener('click',()=>{
+    let canvas=document.createElement("canvas");
+    let ctx=canvas.getContext("2d");
+    canvas.width=imgSrc.naturalWidth;
+    canvas.height=imgSrc.naturalHeight;
+    ctx.filter= imgSrc.style.filter=`contrast(${brightness}%)  brightness(${contrast}%) saturate(${saturate}%) opacity(${opacity}%) blur(${blurx}px)`
+    ctx.translate(canvas.width/2,canvas.height/2);
+    ctx.scale(flipX,flipY);
+    
+    ctx.rotate(degree* Math.PI/180);
+    ctx.drawImage(
+        imgSrc,
+        -canvas.width/2,
+        -canvas.height/2,
+        canvas.width,
+        canvas.height
+    );
+
+    const link=document.createElement("a")
+    link.download="image.jpg"
+    link.href=canvas.toDataURL();
+    link.click();
 })
 
 

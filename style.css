@@ -126,6 +126,7 @@ gap: 70px;
         rotate: 90deg;
     }
     .button-container{
+       /* padding-top: 10px; */
         display: flex;
         gap: 10px;
         margin: 5px 10px;
@@ -145,8 +146,8 @@ gap: 70px;
     }
 
     .disabled  .button-container{
-        pointer-events: none;
-        opacity: .5;
+        /* pointer-events: none;
+        opacity: .5; */
     }
     .button-container :nth-child(2){
         background-color: rgb(82, 212, 82);
@@ -155,4 +156,10 @@ gap: 70px;
     .disabled .Rotate-and-flips{
         pointer-events: none;
         opacity: .5;
+    }
+    .save:hover{
+        box-shadow: 1px 1px 10px 1px #888888
+    }
+    .reset:hover{
+        box-shadow: 1px 1px 10px 1px #888888
     }
